@@ -1,5 +1,4 @@
-# DOCUMENTACIÓN
-
+# Diseños de los servicios REST
 | Endpoint        | Petición HTTP | Body | Response code | Response body | Posibles errores |
 |-----------------|----------------|------|----------------|----------------|------------------|
 | /alumnos        | GET            | N/A  | 200 (OK)       | `{ "alumnos": { "id": 1, "nombre": "Alumno 1", "apellido": "Apellido 1" } }` | — |
