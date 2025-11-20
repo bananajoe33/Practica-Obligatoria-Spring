@@ -1,4 +1,12 @@
 - Diseño
   - GUI
+    - [UI](doc/gui/UI.md)
+    - [UX](doc/gui/UX.md)
+    - [lxD](doc/gui/lxD.md)
+    - [Diagrama navegación](doc/gui/DiagramaNavegacion.md)
+    - [Reutilización](doc/gui/Reutilizacion.md)
+  - Arquitectura
+    - [Diagrama de despliegue](doc/arquitectura/DiagramaDespliegue.md)
+    - [Diagrama de componentes](doc/arquitectura/DiagramaComponentes.md)
 
   - [Servicios rest](doc/DisenioServiciosRest.md)
