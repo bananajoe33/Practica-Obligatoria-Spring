@@ -77,8 +77,8 @@ Es una herramienta hecha a medida para cubrir todos los aspectos de un instituto
 - [Diagrama de componentes](doc/arquitectura/DiagramaComponentes.md)
 
 ### Servicios REST
-- [Alumno](doc/servicios/DisenioServicioRestAlumno.md)
-- [Grupo](doc/servicios/DisenioServicioRestGrupo.md)
+- [Alumno](doc/servicios/DisenioServiciosRestAlumno.md)
+- [Grupo](doc/servicios/DisenioServiciosRestGrupo.md)
 
 ### Base de datos
 - [Base de datos](doc/BaseDeDatos.md)
