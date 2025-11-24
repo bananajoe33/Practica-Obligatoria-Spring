@@ -73,7 +73,7 @@ Es una herramienta hecha a medida para cubrir todos los aspectos de un instituto
 - [Reutilización](doc/gui/Reutilizacion.md)
 
 ### Arquitectura
-- [Diagrama de despliegue](doc/arquitectura/DiagramadeDespliegue.md)
+- [Diagrama de despliegue](doc/arquitectura/DiagramaDespliegue.md)
 - [Diagrama de componentes](doc/arquitectura/DiagramaComponentes.md)
 
 
