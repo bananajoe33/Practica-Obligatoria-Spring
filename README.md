@@ -74,8 +74,6 @@ Es una herramienta hecha a medida para cubrir todos los aspectos de un instituto
 
 ### Arquitectura
 - [Diagrama de despliegue](doc/arquitectura/DiagramadeDespliegue.md)
-- - [Diagrama de Despliegue](doc/diagramas/DiagramaDespliegue.md)
-
 - [Diagrama de componentes](doc/arquitectura/DiagramaComponentes.md)
 
 
