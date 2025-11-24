@@ -1,0 +1,14 @@
+@startuml
+title Diagrama de Despliegue - Sistema de Gestión de Instituto
+
+node "Servidor Web\n(Spring Boot + Tomcat)" {
+
+  node "Aplicación" {
+    component "Spring Boot App" as App
+    database "H2 Database" as H2
+  }
+}
+
+App --> H2
+
+@enduml
