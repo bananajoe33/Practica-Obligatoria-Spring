@@ -1,1 +1,1 @@
-    ![alternative text](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/bananajoe33/Practica-Obligatoria-Spring/refs/heads/develop/doc/diagramas/DiagramaDespliegue.pu)
+![alternative text](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/bananajoe33/Practica-Obligatoria-Spring/refs/heads/develop/doc/diagramas/DiagramaDespliegue.pu)
