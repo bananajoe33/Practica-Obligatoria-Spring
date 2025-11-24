@@ -1,4 +1,3 @@
-
 # 📘 Nombre de la Aplicación
 Sistema de Gestión de Instituto
 
@@ -58,52 +57,71 @@ Es una herramienta hecha a medida para cubrir todos los aspectos de un instituto
 
 ## 📂 Documentación Adicional
 - [Casos de Uso](doc/CasosDeUso.md)  
-- Requisitos  
-  - [Requisitos Funcionales](doc/requisitos/RequisitosFuncionales.md)  
-  - [Requisitos No Funcionales](doc/requisitos/RequisitosNoFuncionales.md)
 
-## Diseño
-- **GUI**
-  - [UI](doc/gui/UI.md)
-  - [UX](doc/gui/UX.md)
-  - [IxD](doc/gui/IxD.md)
-  - [Diagrama de navegación](doc/gui/DiagramaNavegacion.md)
-  - [Reutilización](doc/gui/Reutilizacion.md)
+### Requisitos
+- [Requisitos Funcionales](doc/requisitos/RequisitosFuncionales.md)  
+- [Requisitos No Funcionales](doc/requisitos/RequisitosNoFuncionales.md)
 
-- **Arquitectura**
-  - [Diagrama de despliegue](doc/arquitectura/DiagramadeDespliegue.md)
-  - [Diagrama de componentes](doc/arquitectura/DiagramaComponentes.md)
+---
+
+## 🖌️ Diseño
+### GUI
+- [UI](doc/gui/UI.md)
+- [UX](doc/gui/UX.md)
+- [IxD](doc/gui/IxD.md)
+- [Diagrama de navegación](doc/gui/DiagramaNavegacion.md)
+- [Reutilización](doc/gui/Reutilizacion.md)
+
+### Arquitectura
+- [Diagrama de despliegue](doc/arquitectura/DiagramadeDespliegue.md)
+- [Diagrama de componentes](doc/arquitectura/DiagramaComponentes.md)
 
 - [Servicios REST](doc/DisenioServiciosRest.md)
 
-- **Base de datos**
-  - [Base de datos](doc/BaseDeDatos.md)
+### Base de datos
+- [Base de datos](doc/BaseDeDatos.md)
 
-- **Plan de pruebas**
-  - [Plan de pruebas](doc/PlanDePruebas.md)
+### Plan de pruebas
+- [Plan de pruebas](doc/PlanDePruebas.md)
 
-## Implementación
+---
 
-- **Entorno de Desarrollo**
-  - [Entorno de desarrollo](doc/implementacion/EntornoDesarrollo.md)
+## 🛠️ Implementación
 
-- **Implantación / Puesta en producción**
-  - [Puesta en producción](doc/implementacion/Implantacion.md)
+### Entorno de Desarrollo
+- [Entorno de desarrollo](doc/implementacion/EntornoDesarrollo.md)
 
-- **Información sobre las herramientas utilizadas**
-  - [Versiones y herramientas](doc/implementacion/Herramientas.md)
+### Implantación / Puesta en producción
+- [Puesta en producción](doc/implementacion/Implantacion.md)
 
-- **Elementos destacables del desarrollo**
-  - [Elementos destacables](doc/implementacion/ElementosDestacables.md)
+### Información sobre las herramientas utilizadas
+- [Versiones y herramientas](doc/implementacion/Herramientas.md)
 
-- **Capturas**
-  - [Ejecución de la funcionalidad](doc/capturas/Ejecucion.md)
-  - [Ejecución de las pruebas](doc/capturas/EjecucionPruebas.md)
+### Elementos destacables del desarrollo
+- [Elementos destacables](doc/implementacion/ElementosDestacables.md)
 
+---
+
+## 📸 Capturas
+- [Ejecución de la funcionalidad](doc/capturas/Ejecucion.md)
+- [Ejecución de las pruebas](doc/capturas/EjecucionPruebas.md)
+
+---
+
+## 📖 Manual de Usuario
 - [Manual de usuario](doc/ManualUsuario.md)
 
+---
+
+## 📝 Conclusiones
 - [Conclusiones](doc/Conclusiones.md)
 
+---
+
+## 📚 Bibliografía
 - [Bibliografía](doc/Bibliografia.md)
 
+---
+
+## 📎 Anexos
 - [Anexos](doc/Anexos.md)
