@@ -1,7 +1,7 @@
 @startuml
 title Diagrama de Despliegue - Sistema de Gestión de Instituto
 
-node "Servidor Web\n(Spring Boot + Tomcat)" {
+node "Servidor Web\n(Java + SpringBoot)" {
 
   node "Aplicación" {
     component "Spring Boot App" as App
