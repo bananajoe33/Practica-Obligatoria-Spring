@@ -1,7 +1,7 @@
 @startuml
-title Diagrama Componentes Alumno
+title Diagrama Componentes Grupos
 
-package "Alumno" {
+package "Grupos" {
 
     package "Application" {
         [Command]
