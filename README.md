@@ -74,7 +74,11 @@ Es una herramienta hecha a medida para cubrir todos los aspectos de un instituto
 
 ### Arquitectura
 - [Diagrama de despliegue](doc/arquitectura/DiagramaDespliegue.md)
-- [Diagrama de componentes](doc/arquitectura/DiagramaComponentes.md)
+- **Diagrama de componentes**
+  - [Diagrama Componentes Alumno](doc/arquitectura/DiagramaComponentesAlumno.md)
+  - [Diagrama Componentes Grupo](doc/arquitectura/DiagramaComponentesGrupo.md)
+
+
 
 
 ### Servicios REST
