@@ -22,6 +22,12 @@ package "Grupos" {
         [Web]
     }
 
+
+    [UseCase] --> [Repository]
+    [Service] --> [Model]
+    [Web] --> [UseCase]
+
+
 }
 
 @enduml
