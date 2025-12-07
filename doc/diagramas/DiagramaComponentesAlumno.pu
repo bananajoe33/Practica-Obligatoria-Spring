@@ -22,6 +22,11 @@ package "Alumno" {
         [Web]
     }
 
+
+    [UseCase] --> [Repository]
+    [Service] --> [Model]S
+    [Web] --> [UseCase]
+
 }
 
 @enduml
