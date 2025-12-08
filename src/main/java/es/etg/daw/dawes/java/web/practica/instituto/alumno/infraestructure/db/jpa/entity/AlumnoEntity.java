@@ -2,7 +2,6 @@ package es.etg.daw.dawes.java.web.practica.instituto.alumno.infraestructure.db.j
 
 import java.time.LocalDateTime;
 
-import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -44,14 +43,5 @@ public class AlumnoEntity {
     private GrupoEntity grupo;
 
     public AlumnoEntity() {
-    }
-
-    public AlumnoEntity(Integer id, String nombre, String apellido, Integer edad, LocalDateTime fechaCreacion, GrupoEntity grupo) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.edad = edad;
-        this.fechaCreacion = fechaCreacion;
-        this.grupo = grupo;
     }
 }

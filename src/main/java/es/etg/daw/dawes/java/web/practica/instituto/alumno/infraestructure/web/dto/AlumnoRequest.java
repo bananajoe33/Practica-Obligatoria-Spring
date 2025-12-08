@@ -28,3 +28,4 @@ public record AlumnoRequest(
         this(a.getNombre(), a.getApellido(), a.getEdad(), a.getGrupo().getValue());
     }
 }
+
