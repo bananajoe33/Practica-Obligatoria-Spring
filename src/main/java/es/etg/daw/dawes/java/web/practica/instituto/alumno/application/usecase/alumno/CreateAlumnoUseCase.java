@@ -19,8 +19,10 @@ public class CreateAlumnoUseCase {
                 .apellido(comando.apellido())
                 .edad(comando.edad())
                 .createdAt(LocalDateTime.now())
+                .grupo(comando.grupoId())  // ✅ ASIGNAR GRUPO
                 .build();
 
         return alumnoRepository.save(alumno);
     }
 }
+

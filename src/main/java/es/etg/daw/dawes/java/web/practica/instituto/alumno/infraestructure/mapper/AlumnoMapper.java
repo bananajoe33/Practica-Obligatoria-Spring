@@ -16,13 +16,16 @@ import es.etg.daw.dawes.java.web.practica.instituto.alumno.infraestructure.web.d
 
 public class AlumnoMapper {
 
-    public static CreateAlumnoCommand toCommand(AlumnoRequest alumnoRequest) {
-        return new CreateAlumnoCommand(
-                alumnoRequest.nombre(),
-                alumnoRequest.apellido(),
-                alumnoRequest.edad()
-        );
-    }
+   public static CreateAlumnoCommand toCommand(AlumnoRequest req) {
+    return new CreateAlumnoCommand(
+            req.nombre(),
+            req.apellido(),
+            req.edad(),
+            new GrupoId(req.grupoId())
+    );
+}
+
+
 
     public static EditAlumnoCommand toCommand(int id, AlumnoRequest alumnoRequest) {
         return new EditAlumnoCommand(
@@ -46,18 +49,23 @@ public class AlumnoMapper {
     }
 
     public static AlumnoEntity toEntity(Alumno a) {
-        GrupoEntity grupo = new GrupoEntity();
+    GrupoEntity grupo = null;
+    if (a.getGrupo() != null) {
+        grupo = new GrupoEntity();
         grupo.setId(a.getGrupo().getValue());
-        AlumnoId id = a.getId();
-        return AlumnoEntity.builder()
-                .id(id != null ? id.getValue() : null)
-                .nombre(a.getNombre())
-                .apellido(a.getApellido())
-                .edad(a.getEdad())
-                .fechaCreacion(a.getCreatedAt() != null ? a.getCreatedAt() : LocalDateTime.now())
-                .grupo(grupo)
-                .build();
     }
+    
+    AlumnoId id = a.getId();
+    return AlumnoEntity.builder()
+            .id(id != null ? id.getValue() : null)
+            .nombre(a.getNombre())
+            .apellido(a.getApellido())
+            .edad(a.getEdad())
+            .fechaCreacion(a.getCreatedAt() != null ? a.getCreatedAt() : LocalDateTime.now())
+            .grupo(grupo) // Puede ser null
+            .build();
+}
+
 
     public static Alumno toDomain(AlumnoEntity a) {
         return Alumno.builder()

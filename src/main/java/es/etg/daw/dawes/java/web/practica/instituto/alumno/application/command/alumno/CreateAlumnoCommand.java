@@ -1,15 +1,10 @@
 package es.etg.daw.dawes.java.web.practica.instituto.alumno.application.command.alumno;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.experimental.Accessors;
+import es.etg.daw.dawes.java.web.practica.instituto.alumno.domain.model.GrupoId;
 
-@Getter
-@AllArgsConstructor
-@Accessors(fluent = true)
-public class CreateAlumnoCommand {
-
-    private String nombre;
-    private String apellido;
-    private int edad;
-}
+public record CreateAlumnoCommand(
+        String nombre,
+        String apellido,
+        int edad,
+        GrupoId grupoId
+) {}
