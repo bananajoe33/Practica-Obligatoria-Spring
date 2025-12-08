@@ -1,0 +1,33 @@
+@startuml
+title Diagrama Componentes Grupos
+
+package "Grupos" {
+
+    package "Application" {
+        [Command]
+        [Service]
+        [UseCase]
+    }
+
+    package "Domain" {
+        [Error]
+        [Model]
+        [Repository]
+    }
+
+    package "Infrastructure" {
+        [Config]
+        [DB]
+        [Mapper]
+        [Web]
+    }
+
+
+    [UseCase] --> [Repository]
+    [Service] --> [Model]
+    [Web] --> [UseCase]
+
+
+}
+
+@enduml

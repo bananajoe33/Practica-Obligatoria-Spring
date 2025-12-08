@@ -1,0 +1,32 @@
+@startuml
+title Diagrama Componentes Alumno
+
+package "Alumno" {
+
+    package "Application" {
+        [Command]
+        [Service]
+        [UseCase]
+    }
+
+    package "Domain" {
+        [Error]
+        [Model]
+        [Repository]
+    }
+
+    package "Infrastructure" {
+        [Config]
+        [DB]
+        [Mapper]
+        [Web]
+    }
+
+
+    [UseCase] --> [Repository]
+    [Service] --> [Model]S
+    [Web] --> [UseCase]
+
+}
+
+@enduml

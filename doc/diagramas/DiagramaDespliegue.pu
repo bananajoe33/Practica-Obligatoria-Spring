@@ -1,0 +1,14 @@
+@startuml
+title Diagrama de Despliegue - Sistema de Gestión de Instituto
+
+node "Servidor Web\n(Java + SpringBoot)" {
+  node "Aplicación" {
+    component "Spring Boot App" as App
+  }
+}
+
+database "Database" as H2
+
+App --> H2
+
+@enduml

@@ -1,0 +1,14 @@
+@startuml diagramas
+    actor "Cliente"
+    rectangle "Instituto"{
+        usecase "Crear alumno" as uc1
+        usecase "Borrar alumno" as uc2
+        usecase "Editar alumno" as uc3
+        usecase "Obtener alumno" as uc4 
+    }
+
+    Cliente --> uc1
+    Cliente --> uc2
+    Cliente --> uc3
+    Cliente --> uc4
+@enduml
