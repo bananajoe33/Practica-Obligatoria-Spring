@@ -4,7 +4,7 @@ import es.etg.daw.dawes.java.web.practica.instituto.common.domain.model.Identifi
 
 public class GrupoId extends Identificador {
 
-    public GrupoId(Integer value) {
-        super(value);
+    public GrupoId(Integer grupoId) {
+        super(grupoId);
     }
 }

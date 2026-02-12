@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Alumnos</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
+</head>
+<body>
+    <h1>LISTADO DE ALUMNOS</h1>
+
+    <div class="table-container">
+        <a th:href="@{/web/alumnos/nuevo}">Crear Nuevo</a>
+        
+        <table id="tablaAlumnos">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                </tr>
+            </thead>
+            <tbody id="cuerpoTabla">
+                <tr th:each="a : ${alumnos}">
+                    <td th:text="${a.id.value}">1</td>
+                    <td th:text="${a.nombre}">Nombre Ejemplo</td>
+                    <td th:text="${a.apellido}">Apellido Ejemplo</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
