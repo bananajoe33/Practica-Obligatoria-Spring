@@ -13,7 +13,8 @@ import es.etg.daw.dawes.java.web.practica.instituto.alumno.domain.model.Alumno;
 import es.etg.daw.dawes.java.web.practica.instituto.alumno.domain.model.GrupoId;
 import es.etg.daw.dawes.java.web.practica.instituto.alumno.infraestructure.web.constants.WebRoutes;
 import es.etg.daw.dawes.java.web.practica.instituto.alumno.infraestructure.web.enums.AlumnoThymView;
-import es.etg.daw.dawes.java.web.practica.instituto.alumno.infraestructure.web.enums.ModelAttribute; // ✅ enums
+import es.etg.daw.dawes.java.web.practica.instituto.alumno.infraestructure.web.enums.ModelAttribute;
+
 import lombok.RequiredArgsConstructor;
 
 @Controller
@@ -23,36 +24,39 @@ public class AlumnoViewController {
     private final FindAlumnoService findAlumnoService;
     private final CreateAlumnoService createAlumnoService;
 
-    // Listado de alumnos
+    // 📌 Listado de alumnos
     @GetMapping(WebRoutes.ALUMNOS_BASE)
     public String listar(Model model) {
-        model.addAttribute(ModelAttribute.ALUMNO_LIST.getName(), findAlumnoService.findAll());
+        model.addAttribute(
+                ModelAttribute.ALUMNO_LIST.getName(),
+                findAlumnoService.findAll()
+        );
         return AlumnoThymView.ALUMNO_LIST.getPath();
     }
 
-    // Formulario para nuevo alumno
+    // 📌 Formulario para nuevo alumno
     @GetMapping(WebRoutes.ALUMNOS_NUEVO)
     public String formulario(Model model) {
-        model.addAttribute(ModelAttribute.SINGLE_ALUMNO.getName(), new Alumno(null, null, null, 0, null, null));
+        model.addAttribute(
+                ModelAttribute.SINGLE_ALUMNO.getName(),
+                new Alumno(null, null, null, 0, null, null)
+        );
         return AlumnoThymView.ALUMNO_FORM.getPath();
     }
 
-    // Crear alumno
+    // 📌 Crear alumno (con grupo por defecto = 1)
     @PostMapping(WebRoutes.ALUMNOS_NUEVO)
     public String crearAlumno(
             @RequestParam String nombre,
             @RequestParam String apellido,
             @RequestParam int edad,
-            @RequestParam(required = false) Integer grupoId,
-            Model model) {
-
-        GrupoId grupo = (grupoId != null) ? new GrupoId(grupoId) : null;
+            @RequestParam(defaultValue = "1") Integer grupoId) {
 
         CreateAlumnoCommand command = new CreateAlumnoCommand(
                 nombre,
                 apellido,
                 edad,
-                grupo
+                new GrupoId(grupoId)
         );
 
         createAlumnoService.createAlumno(command);
