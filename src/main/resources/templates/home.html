@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Menú Principal</title>
+
+    
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+</head>
+<body>
+
+<h1>Instituto</h1>
+
+<div class="table-container">
+
+    <a th:href="@{/web/alumnos}" class="button">
+        📋 Ver listado de alumnos
+    </a>
+    <br><br>
+    <a th:href="@{/web/alumnos/nuevo}" class="button">
+        ➕ Crear nuevo alumno
+    </a>
+    <br><br>
+    <a th:href="@{/web/alumnos/pdf}" target="_blank" class="button">
+        📄 Descargar PDF de alumnos
+    </a>
+
+</div>
+
+
+</body>
+</html>

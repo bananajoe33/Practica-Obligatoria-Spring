@@ -5,10 +5,14 @@ package es.etg.daw.dawes.java.web.practica.instituto.alumno.infraestructure.web.
  * en los modelos de la vista para Alumno
  */
 public enum ModelAttribute {
+
     ALUMNO_LIST("alumnos"),
     SINGLE_ALUMNO("alumno"),
     ERROR_MESSAGE("errorMsg"),
-    SUCCESS_MESSAGE("successMsg");
+    SUCCESS_MESSAGE("successMsg"),
+
+    // 🏠 Home
+    PAGE_TITLE("pageTitle");
 
     private final String name;
 

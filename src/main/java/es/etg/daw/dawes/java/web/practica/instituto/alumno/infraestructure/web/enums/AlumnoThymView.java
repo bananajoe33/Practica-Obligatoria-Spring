@@ -1,14 +1,21 @@
 package es.etg.daw.dawes.java.web.practica.instituto.alumno.infraestructure.web.enums;
 
-/**
- * Contiene el listado de plantillas Thymeleaf para Alumno
- */
+
 public enum AlumnoThymView {
 
+    // 🏠 Vista principal
+    HOME("home"),
+
+    // 📚 Alumno
     ALUMNO_LIST("alumnos-lista"),
     ALUMNO_FORM("alumnos-formulario"),
     ALUMNO_CREATED("alumnos-creado"),
     ALUMNO_DETAIL("alumnos-detalle"),
+    
+    // 📄 PDF de alumnos
+    ALUMNO_LIST_PDF("pdf/alumnos-lista-pdf"),
+
+    // ❌ Error
     ERROR_GENERIC("error/error-general");
 
     private final String path;
@@ -21,3 +28,4 @@ public enum AlumnoThymView {
         return this.path;
     }
 }
+
