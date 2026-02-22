@@ -8,7 +8,7 @@
 <body>
 
     <!-- Mensaje de éxito -->
-    <h1 th:text="#{feedback.success.created(#{student.name.singular})}">
+    <h1 th:text="#{feedback.success.created(${#messages.msg('student.name.singular')})}">
         El alumno se ha creado correctamente
     </h1>
     

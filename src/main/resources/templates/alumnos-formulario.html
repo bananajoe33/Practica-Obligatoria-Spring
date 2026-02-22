@@ -11,6 +11,7 @@
 
     <div class="table-container">
         <form th:action="@{/web/alumnos/nuevo}" th:object="${alumno}" method="POST">
+
             <!-- Nombre -->
             <div>
                 <label th:text="#{student.form.label.name}">Nombre:</label>
@@ -20,7 +21,7 @@
 
             <!-- Apellido -->
             <div>
-                <label th:text="#{student.form.label.lastname}">Apellidos:</label>
+                <label th:text="#{student.form.label.lastname}">Apellido:</label>
                 <input type="text" th:field="*{apellido}" required>
             </div>
             <br>
@@ -32,6 +33,7 @@
             </div>
             <br>
 
+            <!-- Botón Guardar -->
             <button type="submit" th:text="#{generic.button.save}">Guardar Alumno</button>
         </form>
     </div>
