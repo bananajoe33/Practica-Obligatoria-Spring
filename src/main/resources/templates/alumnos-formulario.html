@@ -2,26 +2,36 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title th:text="#{product.form.page.title}">Título por defecto</title>
+    <title th:text="#{student.form.page.title}">Nuevo Alumno</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
 </head>
 <body>
 
-    <h1 th:text="#{product.form.title}">CREAR ALUMNO</h1>
+    <h1 th:text="#{student.form.title}">CREAR ALUMNO</h1>
 
     <div class="table-container">
-        <form th:action="@{/web/productos/nuevo}" th:object="${producto}" method="POST">
+        <form th:action="@{/web/alumnos/nuevo}" th:object="${alumno}" method="POST">
+            <!-- Nombre -->
             <div>
-                <label th:text="#{product.form.label.name}">Nombre:</label>
+                <label th:text="#{student.form.label.name}">Nombre:</label>
                 <input type="text" th:field="*{nombre}" required>
             </div>
             <br>
-            <div>
-                <label th:text="#{product.form.label.price}">Apellidos:</label>
-                <input type="text" th:field="*{apellidos}" required>
-            </div>
 
+            <!-- Apellido -->
+            <div>
+                <label th:text="#{student.form.label.lastname}">Apellidos:</label>
+                <input type="text" th:field="*{apellido}" required>
+            </div>
             <br>
+
+            <!-- Edad -->
+            <div>
+                <label th:text="#{student.form.label.age}">Edad:</label>
+                <input type="number" th:field="*{edad}" min="0" max="120" required>
+            </div>
+            <br>
+
             <button type="submit" th:text="#{generic.button.save}">Guardar Alumno</button>
         </form>
     </div>
