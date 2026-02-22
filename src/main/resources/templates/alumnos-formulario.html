@@ -2,33 +2,40 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Nuevo Alumno</title>
+    <title th:text="#{student.form.page.title}">Nuevo Alumno</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
 </head>
 <body>
 
-    <h1>Crear Nuevo Alumno</h1>
+    <h1 th:text="#{student.form.title}">CREAR ALUMNO</h1>
 
-    <form th:action="@{/web/alumnos/nuevo}" method="post">
-        <div>
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" th:value="${alumno.nombre}">
-        </div>
-        <div>
-            <label for="apellido">Apellido:</label>
-            <input type="text" id="apellido" name="apellido" th:value="${alumno.apellido}">
-        </div>
-        <div>
-            <label for="edad">Edad:</label>
-            <input type="number" id="edad" name="edad" th:value="${alumno.edad}">
-        </div>
-        <div>
-            <button type="submit">Crear Alumno</button>
-        </div>
-    </form>
+    <div class="table-container">
+        <form th:action="@{/web/alumnos/nuevo}" th:object="${alumno}" method="POST">
 
-    <div>
-        <a th:href="@{/web/alumnos}">Volver al listado</a>
+            <!-- Nombre -->
+            <div>
+                <label th:text="#{student.form.label.name}">Nombre:</label>
+                <input type="text" th:field="*{nombre}" required>
+            </div>
+            <br>
+
+            <!-- Apellido -->
+            <div>
+                <label th:text="#{student.form.label.lastname}">Apellido:</label>
+                <input type="text" th:field="*{apellido}" required>
+            </div>
+            <br>
+
+            <!-- Edad -->
+            <div>
+                <label th:text="#{student.form.label.age}">Edad:</label>
+                <input type="number" th:field="*{edad}" min="0" max="120" required>
+            </div>
+            <br>
+
+            <!-- Botón Guardar -->
+            <button type="submit" th:text="#{generic.button.save}">Guardar Alumno</button>
+        </form>
     </div>
 
 </body>

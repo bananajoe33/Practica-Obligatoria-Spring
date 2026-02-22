@@ -2,19 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Alumno Creado</title>
+    <title th:text="#{student.confirmation.page.title}">Alumno Creado</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
 </head>
 <body>
 
-    <h1>El alumno se ha creado correctamente</h1>
-
-    <div>
-        <a th:href="@{/web/alumnos}">Ver Listado de Alumnos</a>
-    </div>
-
-    <div>
-        <a th:href="@{/web/alumnos/nuevo}">Crear otro Alumno</a>
+    <!-- Mensaje de éxito -->
+    <h1 th:text="#{feedback.success.created(${#messages.msg('student.name.singular')})}">
+        El alumno se ha creado correctamente
+    </h1>
+    
+    <div class="table-container">
+        <!-- Enlace al listado de alumnos -->
+        <a th:href="@{/web/alumnos}" th:text="#{generic.link.view-list}">Ver Listado</a>
     </div>
 
 </body>

@@ -1,0 +1,14 @@
+@startuml
+title Diagrama de Navegación - Gestión de Alumnos
+
+[*] --> Home : Inicio de la aplicación
+
+Home --> ListadoAlumnos : Ver alumnos
+
+ListadoAlumnos --> CrearAlumno : Añadir alumno
+ListadoAlumnos --> GenerarPDF : Crear PDF
+
+CrearAlumno --> ListadoAlumnos : Guardar / Cancelar
+GenerarPDF --> ListadoAlumnos : Volver al listado
+
+@enduml

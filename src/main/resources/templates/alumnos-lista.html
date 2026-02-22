@@ -1,32 +1,61 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
-    <title>Listado de Alumnos</title>
+    <title th:text="#{student.list.page.title}">Listado de Alumnos</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
 </head>
+
 <body>
-    <h1>LISTADO DE ALUMNOS</h1>
+
+    <!-- Selector de idioma -->
+    <div class="language-selector">
+        <a th:href="@{/web/alumnos(lang=es)}">🇪🇸</a> |
+        <a th:href="@{/web/alumnos(lang=en)}">🇬🇧</a> |
+        <a th:href="@{/web/alumnos(lang=ar)}">🇲🇦</a>
+    </div>
+
+    <hr>
+
+    <!-- Título del listado -->
+    <h1 th:text="#{student.list.title}">LISTADO DE ALUMNOS</h1>
 
     <div class="table-container">
-        <a th:href="@{/web/alumnos/nuevo}">Crear Nuevo</a>
-        
+
+        <!-- Botón Crear Nuevo -->
+        <a th:href="@{/web/alumnos/nuevo}" th:text="#{generic.link.create}">Crear Nuevo</a>
+
+        <!-- Botón Exportar PDF -->
+        <a th:href="@{/web/alumnos/pdf}">
+            <img th:src="@{/images/archivo-pdf.png}"
+                 th:alt="#{generic.link.export.pdf}"
+                 th:title="#{generic.link.export.pdf}"
+                 width="50">
+        </a>
+
+        <!-- Tabla de alumnos -->
         <table id="tablaAlumnos">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
+                    <th th:text="#{student.table.header.id}">ID</th>
+                    <th th:text="#{student.table.header.name}">Nombre</th>
+                    <th th:text="#{student.table.header.lastname}">Apellido</th>
+                    <th th:text="#{student.table.header.age}">Edad</th>
                 </tr>
             </thead>
+
             <tbody id="cuerpoTabla">
                 <tr th:each="a : ${alumnos}">
-                    <td th:text="${a.id.value}">1</td>
-                    <td th:text="${a.nombre}">Nombre Ejemplo</td>
+                    <td th:text="${a.id}">1</td>
+                    <td th:text="${a.nombre}">Alumno Ejemplo</td>
                     <td th:text="${a.apellido}">Apellido Ejemplo</td>
+                    <td th:text="${a.edad}">18</td>
                 </tr>
             </tbody>
         </table>
+
     </div>
+
 </body>
 </html>
