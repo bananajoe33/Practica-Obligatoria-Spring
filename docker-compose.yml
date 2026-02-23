@@ -1,0 +1,7 @@
+services:
+  instituto-api:
+    image: adri0290/instituto:0.0.1-SNAPSHOT   # imagen remota en Docker Hub
+    container_name: instituto-container
+    ports:
+      - "8080:8080"
+    restart: always
