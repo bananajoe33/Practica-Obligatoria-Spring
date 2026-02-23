@@ -15,10 +15,11 @@ import org.xhtmlrenderer.pdf.ITextRenderer;
 import es.etg.daw.dawes.java.web.practica.instituto.alumno.application.command.alumno.CreateAlumnoCommand;
 import es.etg.daw.dawes.java.web.practica.instituto.alumno.application.service.alumno.CreateAlumnoService;
 import es.etg.daw.dawes.java.web.practica.instituto.alumno.application.service.alumno.FindAlumnoService;
-import es.etg.daw.dawes.java.web.practica.instituto.alumno.domain.model.Alumno;
 import es.etg.daw.dawes.java.web.practica.instituto.alumno.domain.model.GrupoId;
+import es.etg.daw.dawes.java.web.practica.instituto.alumno.infraestructure.mapper.AlumnoMapper;
 import es.etg.daw.dawes.java.web.practica.instituto.alumno.infraestructure.web.constants.ModelAttribute;
 import es.etg.daw.dawes.java.web.practica.instituto.alumno.infraestructure.web.constants.WebRoutes;
+import es.etg.daw.dawes.java.web.practica.instituto.alumno.infraestructure.web.dto.AlumnoResponse;
 import es.etg.daw.dawes.java.web.practica.instituto.alumno.infraestructure.web.enums.AlumnoThymView;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -29,7 +30,7 @@ public class AlumnoViewController {
 
     private final FindAlumnoService findAlumnoService;
     private final CreateAlumnoService createAlumnoService;
-    private final SpringTemplateEngine templateEngine; // Thymeleaf
+    private final SpringTemplateEngine templateEngine;
 
     // 🏠 Home
     @GetMapping(WebRoutes.HOME)
@@ -38,17 +39,25 @@ public class AlumnoViewController {
         return AlumnoThymView.HOME.getPath();
     }
 
-    // 📌 Listado de alumnos
+    // 📌 Listado de alumnos (AHORA CON DTO)
     @GetMapping(WebRoutes.ALUMNOS_BASE)
     public String listar(Model model) {
-        model.addAttribute(ModelAttribute.ALUMNO_LIST.getName(), findAlumnoService.findAll());
+
+        List<AlumnoResponse> alumnos = findAlumnoService.findAll()
+                .stream()
+                .map(AlumnoMapper::toResponse)
+                .toList();
+
+        model.addAttribute(ModelAttribute.ALUMNO_LIST.getName(), alumnos);
+
         return AlumnoThymView.ALUMNO_LIST.getPath();
     }
 
     // 📌 Formulario para nuevo alumno
     @GetMapping(WebRoutes.ALUMNOS_NUEVO)
     public String formulario(Model model) {
-        model.addAttribute(ModelAttribute.SINGLE_ALUMNO.getName(), new Alumno(null, null, null, 0, null, null));
+        model.addAttribute(ModelAttribute.SINGLE_ALUMNO.getName(),
+                new AlumnoResponse(0, "", "", 0, null, 0));
         return AlumnoThymView.ALUMNO_FORM.getPath();
     }
 
@@ -71,26 +80,29 @@ public class AlumnoViewController {
         return "redirect:" + WebRoutes.ALUMNOS_BASE;
     }
 
+    // 📌 Exportar PDF (AHORA CON DTO)
     @GetMapping(WebRoutes.ALUMNOS_PDF)
     public void exportarPDF(HttpServletResponse response) throws Exception {
 
-        List<Alumno> alumnos = findAlumnoService.findAll();
+        List<AlumnoResponse> alumnos = findAlumnoService.findAll()
+                .stream()
+                .map(AlumnoMapper::toResponse)
+                .toList();
 
         Context context = new Context();
         context.setVariable("alumnos", alumnos);
 
-        String htmlContent = templateEngine.process(AlumnoThymView.ALUMNO_LIST_PDF.getPath(), context);
+        String htmlContent = templateEngine.process(
+                AlumnoThymView.ALUMNO_LIST_PDF.getPath(),
+                context
+        );
 
         response.setContentType("application/pdf");
         response.setHeader("Content-Disposition", "attachment; filename=alumnos.pdf");
 
         try (OutputStream outputStream = response.getOutputStream()) {
             ITextRenderer renderer = new ITextRenderer();
-
-            // Agregar base URL para resolver recursos estáticos (CSS, imágenes, etc.)
-            String baseUrl = "file:///" + System.getProperty("user.dir") + "/src/main/resources/templates/";
-            renderer.setDocumentFromString(htmlContent, baseUrl);
-
+            renderer.setDocumentFromString(htmlContent);
             renderer.layout();
             renderer.createPDF(outputStream);
         }
