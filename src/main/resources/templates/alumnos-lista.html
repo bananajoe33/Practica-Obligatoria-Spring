@@ -21,10 +21,22 @@
     <!-- Título del listado -->
     <h1 th:text="#{student.list.title}">LISTADO DE ALUMNOS</h1>
 
+    <!-- Botón Volver al Home -->
+    <div style="margin-bottom:15px;">
+        <a th:href="@{/}"
+           class="btn-home"
+           th:text="#{generic.link.home}">
+           Volver al inicio
+        </a>
+    </div>
+
     <div class="table-container">
 
         <!-- Botón Crear Nuevo -->
-        <a th:href="@{/web/alumnos/nuevo}" th:text="#{generic.link.create}">Crear Nuevo</a>
+        <a th:href="@{/web/alumnos/nuevo}"
+           th:text="#{generic.link.create}">
+           Crear Nuevo
+        </a>
 
         <!-- Botón Exportar PDF -->
         <a th:href="@{/web/alumnos/pdf}">
